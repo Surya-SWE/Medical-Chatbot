@@ -18,9 +18,11 @@ load_dotenv()
 
 PINECONE_API_KEY=os.environ.get('PINECONE_API_KEY')
 OPENAI_API_KEY=os.environ.get('OPENAI_API_KEY')
+GOOGLE_API_KEY=os.environ.get('GOOGLE_API_KEY')
 
 os.environ["PINECONE_API_KEY"] = PINECONE_API_KEY
 os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
+os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY
 
 
 embeddings = download_embeddings()
@@ -69,4 +71,5 @@ def chat():
 
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port= 8080, debug= True)
+    port = int(os.environ.get('PORT', 8080))
+    app.run(host="0.0.0.0", port=port, debug=False)

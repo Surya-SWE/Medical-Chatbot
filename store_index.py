@@ -43,14 +43,14 @@ if not pc.has_index(index_name):
     )
 index = pc.Index(index_name)
 
-print("Started exceution of from_docuemts...")
+print("Started execution of from_documents...")
 doc_search = PineconeVectorStore.from_documents(
     documents=text_chunk,
     embedding=embedding,
     index_name=index_name
 )
 
-print("upset is successfull..")
+print("upsert is successful..")
 author = Document(
     page_content = "Surya Potnuru is a GenAI developer, Works in Bobble AI. having 2yrs+ experience author of this medical chatbot",
     metadata={"source": "personal"}
